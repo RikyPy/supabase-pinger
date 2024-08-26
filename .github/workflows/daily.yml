@@ -1,0 +1,30 @@
+name: Daily Supabase Fetch
+
+on:
+  schedule:
+    - cron: '0 12 * * *'  # Esegue alle 12:00 PM UTC ogni giorno
+  workflow_dispatch:  # Permette di eseguire manualmente il workflow
+
+jobs:
+  fetch_songs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install supabase
+
+    - name: Fetch songs from Supabase
+      env:
+        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+      run: |
+        python script.py
