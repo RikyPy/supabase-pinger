@@ -2,8 +2,8 @@ name: Daily Supabase Fetch
 
 on:
   schedule:
-    - cron: '0 12 * * *'  # Esegue alle 12:00 PM UTC ogni giorno
-  workflow_dispatch:  # Permette di eseguire manualmente il workflow
+    - cron: '0 12 * * *'
+  workflow_dispatch:
 
 jobs:
   fetch_songs:
