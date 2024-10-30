@@ -1,3 +1,3 @@
 # supabase-pinger
  
-This script will make supabase projects stay active
+This script will make supabase projects stay active!
